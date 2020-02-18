@@ -40,7 +40,7 @@ function core_install() {
 	apt-get -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -o Dpkg::Options::="--force-overwrite" install apt-parrot parrot-archive-keyring --no-install-recommends
 	apt-get update
 	apt-get -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -o Dpkg::Options::="--force-overwrite" install parrot-core
-        systemctl restart resolvconf
+        systemctl restart systemd-resolved.service
 	apt-get -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -o Dpkg::Options::="--force-overwrite" dist-upgrade
 	apt-get -y --allow-downgrades --allow-remove-essential --allow-change-held-packages -o Dpkg::Options::="--force-overwrite" autoremove
 }
